@@ -10,7 +10,6 @@
 }
 _PAGEDATA-->
 
-
 replace方法是属于String对象的，可用于替换字符串。
 
 简单介绍:

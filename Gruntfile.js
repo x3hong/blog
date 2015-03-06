@@ -1,15 +1,5 @@
 module.exports = function(grunt) {
     
-    var fs = require('fs');
-    fs.readdir('./html/posts/', function (err, files) {
-        var aReuslt = [];
-        files.forEach(function (value,index,arr) {
-            if (/\.html$/.test(value)) {
-                aReuslt.push('html/posts/' + value);
-            }
-        })
-        fs.writeFileSync('./html/data.js', 'showlist('+JSON.stringify(aReuslt)+')');
-    })
     grunt.initConfig({
         watch: {
             cndoc: {
@@ -23,12 +13,12 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         src: 'posts/*.md',
-                        dest: './html',
+                        dest: './blog',
                         ext: '.html'
                     }
                 ],
                 options: {
-                    template: 'static/layout.tpl',
+                    template: 'static/nimojs-blog/layout.tpl',
                     preCompile: function(src, context) {
                         src.replace(/<\!--\_PAGEDATA([\s\S]*)?\_PAGEDATA-->/, function () {
                             var data = JSON.parse(arguments[1]);
@@ -53,5 +43,17 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-markdown');
     grunt.registerTask('default', ['watch','markdown:posts']);
+
+    var fs = require('fs');
+    fs.readdir('./blog/posts/', function (err, files) {
+        if (err) console.log(err);
+        var aReuslt = [];
+        files.forEach(function (value,index,arr) {
+            if (/\.html$/.test(value)) {
+                aReuslt.push('blog/posts/' + value);
+            }
+        })
+        fs.writeFileSync('./blog/posts/data.js', 'showlist('+JSON.stringify(aReuslt)+')');
+    })
     
 };

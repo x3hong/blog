@@ -48,12 +48,12 @@ function showlist (data) {
     var aHTML = ['<ul>'];
     for(var i = 0 ;i<data.length;i++){
         aHTML.push('<li>')
-        aHTML.push('<a href="' + data[i] + '">' + data[i].replace(/html\/posts\/(.*)?\.html/,'$1') + '</a>');
+        aHTML.push('<a href="' + data[i] + '">' + data[i].replace(/blog\/posts\/(.*)?\.html/,'$1') + '</a>');
         aHTML.push('</li>')
     }
     $('#readme').html(aHTML.join(''));
 }
 </script>
-<script src="html/data.js"></script>
+<script src="blog/posts/data.js"></script>
 </body>
 </html>
