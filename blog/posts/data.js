@@ -1,1 +1,1 @@
-showlist(["blog/posts/JavaScript初学者建议：不要去管浏览器兼容.html","blog/posts/深入理解JavaScript-replace.html","blog/posts/项目迁移目录解决方案.html"])
+showlist(["blog/posts/JavaScript初学者建议：不要去管浏览器兼容.html","blog/posts/深入理解JavaScript-replace.html","blog/posts/项目迁移URL解决方案.html"])
